@@ -1,8 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-API_KEY = '40082748-c036ae5fcdc09f757ab593e32';
-BASE_URL = 'https://pixabay.com/api/';
+const API_KEY = '40082748-c036ae5fcdc09f757ab593e32';
+const BASE_URL = 'https://pixabay.com/api/';
 
 const refs = {
   form: document.querySelector('.search-form'),
