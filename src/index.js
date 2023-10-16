@@ -48,12 +48,15 @@ function onSearch(event) {
         );
         return;
       }
-      refs.gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
-      currentHits = data.hits.length;
-      if (data.totalHits > 40) {
-        refs.loadMore.classList.replace('load-more-hidden', 'load-more');
-      } else {
-        refs.loadMore.classList.replace('load-more', 'load-more-hidden');
+      if (data.totalHits > 0) {
+        Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+        refs.gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
+        currentHits = data.hits.length;
+        if (data.totalHits > 40) {
+          refs.loadMore.classList.replace('load-more-hidden', 'load-more');
+        } else {
+          refs.loadMore.classList.replace('load-more', 'load-more-hidden');
+        }
       }
     })
     .catch(() =>
